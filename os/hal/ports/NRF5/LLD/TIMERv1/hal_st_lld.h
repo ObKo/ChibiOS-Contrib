@@ -67,11 +67,7 @@
  * @brief   ST interrupt priority level setting.
  */
 #if !defined(NRF5_ST_PRIORITY) || defined(__DOXYGEN__)
-#if !defined(SOFTDEVICE_PRESENT)
 #define NRF5_ST_PRIORITY        CORTEX_MAX_KERNEL_PRIORITY
-#else
-#define NRF5_ST_PRIORITY        1
-#endif
 #endif
 
 /*===========================================================================*/
@@ -95,20 +91,6 @@
 #error "Only one clock source can be used (RTC0, RTC1, or TIMER0)"
 #endif
 
-#if defined(SOFTDEVICE_PRESENT)
-#if NRF5_ST_USE_RTC0 == TRUE
-#error "RTC0 cannot be used for system ticks when SOFTDEVICE present"
-#endif
-
-#if NRF5_ST_USE_TIMER0 == TRUE
-#error "TIMER0 cannot be used for system ticks when SOFTDEVICE present"
-#endif
-
-#if NRF5_ST_PRIORITY != 1
-#error "ST priority must be 1 when SOFTDEVICE present"
-#endif
-
-#endif /* defined(SOFTDEVICE_PRESENT) */
 #endif /* OSAL_ST_MODE != OSAL_ST_MODE_NONE */
 
 #if OSAL_ST_MODE == OSAL_ST_MODE_FREERUNNING
