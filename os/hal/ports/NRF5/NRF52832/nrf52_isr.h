@@ -27,7 +27,7 @@
 #define NRF52_ISR_H
 
 #if !defined(NRF5_IRQ_GPIOTE_PRIORITY) || defined(__DOXYGEN__)
-#define NRF5_IRQ_GPIOTE_PRIORITY      3
+#define NRF5_IRQ_GPIOTE_PRIORITY      6
 #endif
 
 #ifdef __cplusplus
